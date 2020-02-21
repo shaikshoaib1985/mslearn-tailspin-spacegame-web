@@ -12,11 +12,10 @@ variables:
   dotnetSdkVersion: '3.1.100'
 
 steps:
-<<<<<<< HEAD
+
 - task: UseDotNet@2
-=======
+
 - task: DotNetCoreInstaller@0
->>>>>>> c892ff97638c50240817f66ce4cedcb30391bbb3
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
@@ -42,7 +41,7 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-<<<<<<< HEAD
+
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
@@ -54,7 +53,7 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
-=======
+
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
@@ -82,4 +81,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
->>>>>>> c892ff97638c50240817f66ce4cedcb30391bbb3
